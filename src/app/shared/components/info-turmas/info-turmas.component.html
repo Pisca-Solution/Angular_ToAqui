@@ -1,0 +1,15 @@
+<ng-container *ngFor="let dado of dados; let i = index">
+    <p class="title fs-2">{{getDiaSemana(dado.aulas[0].dataInicio)}}</p>
+
+    <div class="row mb-3">
+      <div class="col-4">
+        <div class="card" (click)="modalCriaChamada(dado)">
+          <div class="card-body">
+            <h5 class="card-title">{{dado.turma.nomeTurma}}</h5>
+            <h6 class="card-subtitle mb-2 fs-6">Turma: {{dado.turma.codigoTurma}}</h6>
+            <h6 class="card-subtitle mb-2 fs-6">Curso: {{dado.turma.curso}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-container>

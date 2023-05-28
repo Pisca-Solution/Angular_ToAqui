@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-container {
+    .sidebar-toggle {
+      text-decoration: none;
+      cursor: pointer;
+
+      nb-icon {
+        font-size: 1.3rem;
+      }
+    }
+
+    .logo {
+      padding: 0 1.25rem;
+      font-size: 1.3rem;
+      white-space: nowrap;
+      text-decoration: none;
+      margin: 0 0 0 15px;
+
+    }
+  }
+}
+
+::ng-deep a.active::before {
+  visibility: hidden;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+}
+
+::ng-deep nb-user .user-picture.image.ng-star-inserted{
+  background-size: contain !important;
+  background-position: center;
+}

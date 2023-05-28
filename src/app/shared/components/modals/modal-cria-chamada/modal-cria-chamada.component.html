@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-end p-2">
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body pt-0">
+  <h1>Configuração da Chamada</h1>
+
+  <div>
+    <form [formGroup]="form" (ngSubmit)="form.markAllAsTouched(); criaChamada()">
+      <div class="mt-3">
+        <label for="timer" class="mb-2">Escolha as aulas que quer fazer chamada:</label>
+
+        <div class="mt-2" formArrayName="aulas">
+          <ng-container *ngFor="let aula of aulasForm.controls; let i = index">
+            <nb-checkbox class="ml-2" (checkedChange)="toggle($event)" [formControl]="getAulaSelecionadaControl(i)">
+              {{ aulasForm.at(i).get('dataInicio').value }}
+            </nb-checkbox>
+          </ng-container>
+        </div>
+      </div>
+
+
+      <div class="mt-3">
+        <nb-toggle labelPosition="start" formControlName="presencaTodos">Dar presença a todos os alunos?</nb-toggle>
+      </div>
+
+      <div class="mt-3" *ngIf="!this.form.controls['presencaTodos'].value">
+        <label for="timer" class="mb-2">Quantos minutos vai durar a chamada?</label>
+            <input nbInput
+                   type="text"
+                   [nbTimepicker]="timepicker"
+                   formControlName="timer"
+                   name="timer"
+                   class="d-block"
+            />
+            <nb-timepicker
+              #timepicker="nbTimepicker"
+              singleColumn
+              [step]="5" class="timerPicker"
+              timeFormat="HH:mm"
+              (onSelectTime)="handleTimeSelection($event)"
+              ></nb-timepicker>
+      </div>
+
+      <div class="mt-3">
+        <label for="descricao" class="mb-2">O que foi passado em Aula ?</label>
+        <textarea nbInput fullWidth type="text" formControlName="descricao" name="descricao"></textarea>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center mt-5">
+        <button type="submit" class="botao">Criar Chamada</button>
+      </div>
+    </form>
+  </div>
+</div>

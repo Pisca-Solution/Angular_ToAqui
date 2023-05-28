@@ -1,0 +1,31 @@
+<nb-layout>
+  <nb-layout-column style="padding: 90px 15px 15px 70px;">
+    <nb-layout-header fixed>
+      <div class="header">
+        <div class="header-container">
+          <div class="logo-container">
+            <a (click)="toggleSidebar()" class="sidebar-toggle unselectable">
+              <nb-icon icon="menu-2-outline"></nb-icon>
+            </a>
+
+            <a class="logo desktop-only" routerLink="/painel/chamada-qrcode">TôAqui!</a>
+          </div>
+        </div>
+
+        <div class="header-container">
+          <nb-actions size="small">
+            <nb-action class="user-action unselectable">
+              <nb-user [nbContextMenu]="userMenu" [name]="user"></nb-user>
+            </nb-action>
+          </nb-actions>
+        </div>
+      </div>
+    </nb-layout-header>
+
+    <nb-sidebar #sidebar fixed state="compacted">
+      <nb-menu [items]="items"></nb-menu>
+    </nb-sidebar>
+
+    <router-outlet style="width: 100%;"></router-outlet>
+  </nb-layout-column>
+</nb-layout>

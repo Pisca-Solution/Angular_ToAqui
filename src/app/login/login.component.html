@@ -1,0 +1,36 @@
+<div class="limiter">
+  <div class="background-login">
+    <div class="Formulario row">
+      <div class="logo d-flex align-items-center justify-content-center col-md-6 col-12">
+        <img src="../../../assets/img/logo.png" alt="Logo">
+      </div>
+
+      <div class="login d-flex align-items-center justify-content-center col-md-6 col-12">
+        <nb-alert status="danger" closable (close)="erroLogin = false" *ngIf="erroLogin">
+          E-mail e/ou senha incorreto(s)!
+        </nb-alert>
+        <form [formGroup]="form" (ngSubmit)="form.markAllAsTouched();login()">
+          <p class="text-center title">Acesse sua conta</p>
+
+          <div class="campo">
+            <input type="email" class="input" placeholder="E-mail" formControlName="email"
+            [ngClass]="(form.controls['email'].touched || form.controls['email'].dirty) && form.controls['email'].invalid ? 'danger' : ''">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="campo">
+
+            <input [type]="showPassword ? 'text' : 'password'" class="input" placeholder="Senha" formControlName="senha"
+            [ngClass]="(form.controls['senha'].touched || form.controls['senha'].dirty) && form.controls['senha'].invalid ? 'danger' : ''">
+            <i class="fa-solid fa-lock"></i>
+
+            <button id="toggleSenha" (click)="toggleShowPassword()" type="button">
+              <i [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" [attr.aria-label]="showPassword ? 'show password' : 'hide password'"></i>
+            </button>
+          </div>
+
+          <button type="submit" class="botao-login mt-4">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

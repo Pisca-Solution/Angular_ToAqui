@@ -1,0 +1,33 @@
+.timerPicker{
+  position: absolute;
+  z-index: 999;
+}
+
+.botao{
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  width: 50%;
+  height: 50px;
+  border-radius: 25px;
+  background: #0d6efd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
+  border: none;
+}
+
+::ng-deep{
+  span.text{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    color: #222B45;
+    font-weight: 400;
+  }
+}
