@@ -7,6 +7,8 @@ import { AlertService } from './services/alert-service/alert-service.service';
 import { NbDateFnsDateModule } from '@nebular/date-fns';
 import { InfoTurmasComponent } from './components/info-turmas/info-turmas.component';
 import { ModalCriaChamadaComponent } from './components/modals/modal-cria-chamada/modal-cria-chamada.component';
+import { RequestService } from './services/request-service/request.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [InfoTurmasComponent, ModalCriaChamadaComponent],
@@ -29,9 +31,11 @@ import { ModalCriaChamadaComponent } from './components/modals/modal-cria-chamad
       validation: false
     }),
     NbToggleModule,
+    HttpClientModule
   ],
   providers: [
-    AlertService
+    AlertService,
+    RequestService
   ]
 })
 export class SharedModule { }

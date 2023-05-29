@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { StorageService } from '../storage-service/storage.service';
-import { map } from 'rxjs';
+import { catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +31,10 @@ export class RequestService {
       let option = { headers: header};
       if(data) {
           return method.toUpperCase() == "CPOST" ? this.throughPost(url, data, option) : this.throughPost(url, JSON.stringify(data), option);
-      } else {
+      } else if(method.toUpperCase() == "GET") {
           return this.throughGet(url, option);
+      }else if(method.toUpperCase() == "PUT") {
+        return this.throughPut(url, null,option);
       }
   };
 
@@ -45,13 +47,27 @@ export class RequestService {
         );
    };
 
+  private throughPut(url: string, data?: any, option?: any) {
+    return this._http.put(url, data, option)
+        .pipe(
+            map(response => {
+                return this.internalRequest ? response : this.throwObservableSuccess(response);
+            })
+        );
+   };
+
    private throughGet(url: string, option?: any) {
        return this._http.get(url, option)
-           .pipe(
-               map(response => {
-                   return this.internalRequest ? response : this.throwObservableSuccess(response);
-               })
-           );
+       .pipe(
+        catchError(error => {
+           // Lida com o erro aqui
+           console.error(error);
+           return of(error); // Retorna um observable de erro para o componente
+        }),
+        map(response => {
+            return this.internalRequest ? response : this.throwObservableSuccess(response);
+        })
+    );
    };
 
    private throwObservableSuccess(dataToReturn: any) {

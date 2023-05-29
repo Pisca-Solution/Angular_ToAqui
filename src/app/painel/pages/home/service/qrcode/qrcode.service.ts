@@ -7,7 +7,7 @@ import { RequestService } from 'src/app/shared/services/request-service/request.
 export class QrcodeService {
 
   constructor(
-  private _requestService: RequestService
+    private _requestService: RequestService
   ) { }
 
   gerarQrCode(id: number){

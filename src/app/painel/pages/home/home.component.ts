@@ -13,13 +13,11 @@ import { ProfessorService } from './service/professor/professor.service';
 })
 export class HomeComponent implements OnInit {
 
-  qrcodeUrl: string = "";
   professorId = null;
   turmas = [];
 
   constructor(
     private _professorService: ProfessorService,
-    private _qrCodeService: QrcodeService,
     private alerta: AlertService,
     private spinner: NgxSpinnerService
   ) {
@@ -44,28 +42,16 @@ export class HomeComponent implements OnInit {
             this.turmas = response;
         }, (error: HttpErrorResponse) => {
           this.spinner.hide();
-          this.alerta.error(error);
+
+          this.alerta.error(error).then(dialog => {
+            if(dialog.isConfirmed){
+              if(error.status === 403){
+                localStorage.clear();
+                window.document.location.href = "/login";
+              }
+            }
+          });
         });
   }
 
-  generateQRCode(id: number) {
-    this.spinner.show();
-
-    this._qrCodeService.gerarQrCode(id)
-        .pipe(
-          take(1)
-        )
-        .subscribe((response: any) => {
-            this.spinner.hide();
-            const reader = new FileReader();
-            reader.onloadend = () => {
-              this.qrcodeUrl = reader.result as string;
-            };
-            reader.readAsDataURL(response);
-
-        }, (error: HttpErrorResponse) => {
-          this.spinner.hide();
-          this.alerta.error(error);
-        });
-  }
 }

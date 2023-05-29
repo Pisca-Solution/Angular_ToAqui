@@ -5,16 +5,16 @@
 </div>
 
 <div class="modal-body pt-0">
-  <h1>Configuração da Chamada</h1>
+  <h1 class="m-0">Configuração da Chamada</h1>
 
-  <div>
+  <div class="mt-3">
     <form [formGroup]="form" (ngSubmit)="form.markAllAsTouched(); criaChamada()">
       <div class="mt-3">
         <label for="timer" class="mb-2">Escolha as aulas que quer fazer chamada:</label>
 
         <div class="mt-2" formArrayName="aulas">
           <ng-container *ngFor="let aula of aulasForm.controls; let i = index">
-            <nb-checkbox class="ml-2" (checkedChange)="toggle($event)" [formControl]="getAulaSelecionadaControl(i)">
+            <nb-checkbox class="ml-2" [formControl]="getAulaSelecionadaControl(i)">
               {{ aulasForm.at(i).get('dataInicio').value }}
             </nb-checkbox>
           </ng-container>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="mt-3">
-        <label for="descricao" class="mb-2">O que foi passado em Aula ?</label>
+        <label for="descricao" class="mb-2">O que foi passado em aula ?</label>
         <textarea nbInput fullWidth type="text" formControlName="descricao" name="descricao"></textarea>
       </div>
 

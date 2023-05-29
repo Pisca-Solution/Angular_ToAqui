@@ -14,4 +14,8 @@ export class ChamadaService {
   criarChamada(data: Chamada){
     return this._requestService.requestMethod(`chamadas`, "POST", true, data);
   }
+
+  addPresencaTodos(chamadaId: number){
+    return this._requestService.requestMethod(`chamadas/${chamadaId}/alunos`, "PUT", true);
+  }
 }

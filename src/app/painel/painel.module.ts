@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbIconModule, NbMenuModule, NbContextMenuModule, NbUserModule, NbActionsModule, NbSelectModule, NbCardModule, NbDialogModule, NbSidebarService } from '@nebular/theme';
 import { PainelRoutingModule } from './painel-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { PainelRoutingModule } from './painel-routing.module';
     NbCardModule,
     SharedModule,
     NbDialogModule.forChild(),
+    HttpClientModule
   ],
   declarations: [PainelComponent],
   providers: [NbSidebarService]
