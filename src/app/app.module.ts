@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
 import { PainelModule } from './painel/painel.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule.forRoot(),
     NbThemeModule.forRoot({ name: 'corporate' }),
     NbEvaIconsModule,
     NgxSpinnerModule,
@@ -30,7 +35,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NbCardModule,
     NbTimepickerModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

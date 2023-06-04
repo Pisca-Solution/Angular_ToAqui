@@ -59,11 +59,6 @@ export class RequestService {
    private throughGet(url: string, option?: any) {
        return this._http.get(url, option)
        .pipe(
-        catchError(error => {
-           // Lida com o erro aqui
-           console.error(error);
-           return of(error); // Retorna um observable de erro para o componente
-        }),
         map(response => {
             return this.internalRequest ? response : this.throwObservableSuccess(response);
         })

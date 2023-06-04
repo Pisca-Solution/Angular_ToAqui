@@ -1,0 +1,56 @@
+<div class="row mb-5">
+  <div class="d-flex flex-row justify-content-start align-items-center">
+    <label for="select">Selecione uma turma: </label>
+
+    <nb-select [(ngModel)]="turmaSelected" placeholder="Selecione uma turma" (selectedChange)="turmaChange($event);" size="large">
+      <nb-option *ngFor="let option of turmas" [value]="option.id" >{{option.turma.nomeTurma}}</nb-option>
+    </nb-select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-3 col-sm-12">
+    <div class="calendar mb-3">
+      <nb-calendar [(date)]="date" [filter]="filter"></nb-calendar>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-9 col-sm-12">
+      <table class="w-100" mat-table matSort [dataSource]="dataSource">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef> Data </th>
+          <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descricao">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let element"> {{element.descricao | stringRedux: 70:'...'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="professor">
+          <th mat-header-cell *matHeaderCellDef> Professor </th>
+          <td mat-cell *matCellDef="let element"> {{element.professor.nome}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns?.length">
+                Essa turma não possui chamadas.
+            </td>
+        </tr>
+        <tr mat-row
+            *matRowDef="let row; columns: displayedColumns;"
+            (click)="verDetalhes(row)"
+        ></tr>
+      </table>
+
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+  </mat-paginator>
+  </div>
+</div>

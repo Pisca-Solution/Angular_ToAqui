@@ -18,4 +18,21 @@ export class ChamadaService {
   addPresencaTodos(chamadaId: number){
     return this._requestService.requestMethod(`chamadas/${chamadaId}/alunos`, "PUT", true);
   }
+
+  addPresencaAluno(chamadaId: number, alunoId: number){
+    return this._requestService.requestMethod(`chamadas/${chamadaId}/alunos/${alunoId}`, "PUT", true);
+  }
+
+  enviaEmailConfirmacaoFalta(chamadaId: number){
+    return this._requestService.requestMethod(`chamadas/${chamadaId}/alunos/faltas`, "GET", true);
+  }
+
+  buscaChamadaById(chamadaId: number){
+    return this._requestService.requestMethod(`chamadas/${chamadaId}`, "GET", true);
+  }
+
+  buscaChamadaByTurma(turmaId: number){
+    return this._requestService.requestMethod(`chamadas/turma/${turmaId}`, "GET", true);
+  }
+
 }

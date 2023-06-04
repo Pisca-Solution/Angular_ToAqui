@@ -48,7 +48,7 @@ export class PainelComponent implements OnInit {
       { title: 'Chamada Aleatória', icon: 'question-mark-outline', link: '/painel/chamada-qrcode', pathMatch: 'prefix' },
       { title: 'Chamada Manual', icon: 'checkmark-outline', link: '/painel/chamada-qrcode', pathMatch: 'prefix' },
       { title: 'Chamada Carômetro', icon: 'smiling-face-outline', link: '/painel/chamada-qrcode', pathMatch: 'prefix' },
-      { title: 'Histórico de Turma', icon: 'calendar-outline', link: '/painel/chamada-qrcode', pathMatch: 'prefix' },
+      { title: 'Histórico de Turma', icon: 'calendar-outline', link: '/painel/historico-turma', pathMatch: 'prefix' },
     ];
   }
 

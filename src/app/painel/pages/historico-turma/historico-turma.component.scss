@@ -1,0 +1,22 @@
+.mat-row .mat-cell {
+  padding: 8px 24px;
+  cursor: pointer;
+}
+
+.mat-header-cell {
+  text-align: center;
+}
+
+.mat-header-cell-descricao {
+  text-align: start;
+}
+
+.mat-row:hover .mat-cell {
+  background-color: #85afee1e;
+}
+
+.mat-column-id {
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}

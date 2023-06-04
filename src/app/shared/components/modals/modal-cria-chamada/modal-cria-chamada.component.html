@@ -26,24 +26,6 @@
         <nb-toggle labelPosition="start" formControlName="presencaTodos">Dar presença a todos os alunos?</nb-toggle>
       </div>
 
-      <div class="mt-3" *ngIf="!this.form.controls['presencaTodos'].value">
-        <label for="timer" class="mb-2">Quantos minutos vai durar a chamada?</label>
-            <input nbInput
-                   type="text"
-                   [nbTimepicker]="timepicker"
-                   formControlName="timer"
-                   name="timer"
-                   class="d-block"
-            />
-            <nb-timepicker
-              #timepicker="nbTimepicker"
-              singleColumn
-              [step]="5" class="timerPicker"
-              timeFormat="HH:mm"
-              (onSelectTime)="handleTimeSelection($event)"
-              ></nb-timepicker>
-      </div>
-
       <div class="mt-3">
         <label for="descricao" class="mb-2">O que foi passado em aula ?</label>
         <textarea nbInput fullWidth type="text" formControlName="descricao" name="descricao"></textarea>

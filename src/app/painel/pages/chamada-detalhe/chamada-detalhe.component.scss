@@ -1,0 +1,41 @@
+.mat-table{
+  width: 100%;
+}
+
+.mat-row .mat-cell {
+  padding: 8px 24px;
+}
+
+.mat-header-cell {
+  padding: 8px 24px;
+  text-align: start;
+}
+
+.mat-column-id {
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.presente{
+  color: green;
+}
+
+.faltante{
+  color: red;
+}
+
+.card-chamada{
+  min-height: 188px;
+  height: auto;
+}
+
+.btn-add{
+  position: relative;
+  bottom: -33px;
+  left: 1323px;
+
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 50%;
+}

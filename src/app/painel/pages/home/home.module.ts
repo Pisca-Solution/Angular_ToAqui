@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RouterModule,
     HomeRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule.forRoot(),
   ],
   declarations: [HomeComponent]
 })

@@ -33,7 +33,6 @@ export class ModalCriaChamadaComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      timer: [null, []],
       descricao: [null, [Validators.required]],
       presencaTodos: [false, [Validators.required]],
       aulas: this.criaAulas()
@@ -120,7 +119,6 @@ export class ModalCriaChamadaComponent implements OnInit {
               }else{
                 this.spinner.hide();
                 let dados = {
-                  timer: this.form.controls['timer'].value,
                   nomeTurma: this.turma.turma.nomeTurma,
                   chamadaId: response.id
                 }
@@ -141,14 +139,5 @@ export class ModalCriaChamadaComponent implements OnInit {
             });
           });
     }
-  }
-
-  handleTimeSelection(event: any){
-    const selectedTime = new Date(event.time);
-    const hours = String(selectedTime.getHours()).padStart(2, '0');
-    const minutes = String(selectedTime.getMinutes()).padStart(2, '0');
-    const formattedTime = `${hours}:${minutes}`;
-
-    console.log('Selected time (formatted):', formattedTime);
   }
 }

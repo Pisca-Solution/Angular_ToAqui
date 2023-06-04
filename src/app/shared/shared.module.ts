@@ -9,10 +9,12 @@ import { InfoTurmasComponent } from './components/info-turmas/info-turmas.compon
 import { ModalCriaChamadaComponent } from './components/modals/modal-cria-chamada/modal-cria-chamada.component';
 import { RequestService } from './services/request-service/request.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { StringRedux } from './pipes/string-redux.pipe';
 
 @NgModule({
-  declarations: [InfoTurmasComponent, ModalCriaChamadaComponent],
-  exports: [InfoTurmasComponent, ModalCriaChamadaComponent],
+  declarations: [InfoTurmasComponent, ModalCriaChamadaComponent, StringRedux],
+  exports: [InfoTurmasComponent, ModalCriaChamadaComponent, StringRedux],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -31,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
       validation: false
     }),
     NbToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule.forRoot()
   ],
   providers: [
     AlertService,

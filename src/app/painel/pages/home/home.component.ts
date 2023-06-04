@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
     private alerta: AlertService,
     private spinner: NgxSpinnerService
   ) {
-    let dadosUsuario = JSON.parse(localStorage.getItem("perfil"));
-    this.professorId = dadosUsuario.id;
+    let dadosUsuario = JSON.parse(localStorage.getItem("classID"));
+    this.professorId = dadosUsuario;
   }
 
 

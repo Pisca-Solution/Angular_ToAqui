@@ -4,6 +4,7 @@ import { QrCodePageComponent } from './QrCodePage.component';
 import { RouterModule } from '@angular/router';
 import { QrCodePageRoutingModule } from './QrCodePage-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [QrCodePageComponent],
@@ -11,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     RouterModule,
     QrCodePageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule.forRoot()
   ]
 })
 export class QrCodePageModule { }
