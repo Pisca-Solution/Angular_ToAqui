@@ -60,8 +60,6 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('classID', response.classId);
 
             await this.buscaDadosUsuario(response.classId);
-
-            window.document.location.href = "/painel/chamada-qrcode";
           }
         }, (error: HttpErrorResponse) => {
           this.spinner.hide();
@@ -86,6 +84,8 @@ export class LoginComponent implements OnInit {
         .subscribe((response: any) => {
             this.spinner.hide();
             localStorage.setItem('perfil', JSON.stringify(response));
+
+            window.document.location.href = "/painel/chamada-qrcode";
         }, (error: HttpErrorResponse) => {
           this.spinner.hide();
           this.alerta.error(error);

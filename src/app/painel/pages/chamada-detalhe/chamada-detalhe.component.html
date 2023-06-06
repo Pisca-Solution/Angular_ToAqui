@@ -10,7 +10,7 @@
           <span>Descriçao:</span>  {{chamadaDados['descricao']}}
         </p>
         <p>
-          <span>Professor:</span> {{chamadaDados['professor']['nome']}}
+          <span>Professor:</span> {{chamadaDados['professor']?.['nome']}}
         </p>
       </nb-card-body>
     </nb-card>
@@ -78,6 +78,6 @@
 <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
 </mat-paginator>
 
-<button class="btn-add">
-  <img src="../../../../favicon.ico" alt="Icone toAqui!">
+<button class="btn-add" (click)="abrirModalPresenca()">
+  <i class="fa-solid fa-hand-point-up"></i>
 </button>

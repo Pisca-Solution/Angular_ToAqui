@@ -11,10 +11,11 @@ import { RequestService } from './services/request-service/request.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { StringRedux } from './pipes/string-redux.pipe';
+import { AddPresencaAlunoComponent } from './components/modals/add-presenca-aluno/add-presenca-aluno.component';
 
 @NgModule({
-  declarations: [InfoTurmasComponent, ModalCriaChamadaComponent, StringRedux],
-  exports: [InfoTurmasComponent, ModalCriaChamadaComponent, StringRedux],
+  declarations: [InfoTurmasComponent, ModalCriaChamadaComponent, StringRedux, AddPresencaAlunoComponent],
+  exports: [InfoTurmasComponent, ModalCriaChamadaComponent, StringRedux, AddPresencaAlunoComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

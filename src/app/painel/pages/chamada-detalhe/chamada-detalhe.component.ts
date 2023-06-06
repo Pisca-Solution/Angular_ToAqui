@@ -7,6 +7,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { take } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { AddPresencaAlunoComponent } from 'src/app/shared/components/modals/add-presenca-aluno/add-presenca-aluno.component';
 
 @Component({
   selector: 'app-chamada-detalhe',
@@ -23,13 +25,16 @@ export class ChamadaDetalheComponent implements OnInit {
   displayedColumns: string[] = ['id', 'ra', 'nome', 'presente'];
   dataSource: MatTableDataSource<any>;
 
+  modalRef?: BsModalRef;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private _chamadaService: ChamadaService,
     private alerta: AlertService,
     private spinner: NgxSpinnerService,
-    private _activatedRouteService: ActivatedRoute
+    private _activatedRouteService: ActivatedRoute,
+    private modalService: BsModalService
   ) {
     this._activatedRouteService.params.subscribe(params => params['chamadaId'] ? this.chamadaId = params['chamadaId'] : null);
   }
@@ -92,5 +97,14 @@ export class ChamadaDetalheComponent implements OnInit {
     this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => `${pageSize * (page + 1) < length ? pageSize * (page + 1) : length} de ${length}`;
 
     this.dataSource.paginator = this.paginator;
+  }
+
+  abrirModalPresenca(){
+    let initialState = {
+      alunos: this.chamadaDados['alunos'],
+      chamada: this.chamadaId
+    }
+
+    this.modalRef =  this.modalService.show(AddPresencaAlunoComponent, { class:"modal-dialog-centered",  initialState });
   }
 }

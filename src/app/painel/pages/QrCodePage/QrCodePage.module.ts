@@ -5,6 +5,10 @@ import { RouterModule } from '@angular/router';
 import { QrCodePageRoutingModule } from './QrCodePage-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [QrCodePageComponent],
@@ -13,7 +17,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     RouterModule,
     QrCodePageRoutingModule,
     HttpClientModule,
-    NgxSpinnerModule.forRoot()
+    NgxSpinnerModule.forRoot(),
+    MatTableModule,
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatSelectModule,
   ]
 })
 export class QrCodePageModule { }

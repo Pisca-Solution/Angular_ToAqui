@@ -5,5 +5,17 @@
 </div>
 
 <div class="modal-body pt-0">
+  <h1 class="mb-3">Adicionar presença manual</h1>
 
+  <div class="d-flex flex-column justify-content-center align-items-start">
+    <label class="mb-3" for="select">Selecione um aluno: </label>
+
+    <nb-select [(ngModel)]="alunoSelecionado" placeholder="Selecione um aluno" (selectedChange)="alunoChange($event);" size="large" status="info">
+      <nb-option *ngFor="let option of alunos" [value]="option.aluno.id" >{{option.aluno.nome}}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center mt-5">
+    <button (click)="addcionarPresenca()" class="botao">Adicionar presença</button>
+  </div>
 </div>

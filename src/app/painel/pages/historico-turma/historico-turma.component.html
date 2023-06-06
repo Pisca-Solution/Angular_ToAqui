@@ -2,7 +2,7 @@
   <div class="d-flex flex-row justify-content-start align-items-center">
     <label for="select">Selecione uma turma: </label>
 
-    <nb-select [(ngModel)]="turmaSelected" placeholder="Selecione uma turma" (selectedChange)="turmaChange($event);" size="large">
+    <nb-select [(ngModel)]="turmaSelected" placeholder="Selecione uma turma" (selectedChange)="turmaChange($event);" size="large" status="info">
       <nb-option *ngFor="let option of turmas" [value]="option.id" >{{option.turma.nomeTurma}}</nb-option>
     </nb-select>
   </div>
