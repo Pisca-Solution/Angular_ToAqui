@@ -5,3 +5,41 @@
 .faltante{
   color: red;
 }
+
+.botao{
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  width: 60%;
+  height: 50px;
+  border-radius: 25px;
+  background: #0d6efd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
+  border: none;
+}
+
+.btn-add{
+  position: absolute;
+  bottom: 45px;
+  right: 39px;
+
+  background-color: #0d6efd;
+  border: 0.3px solid #2e2e2e5f;
+  border-radius: 50%;
+
+  width: 50px;
+  height: 50px;
+
+  i{
+    color: white;
+    font-size: 24px;
+  }
+}

@@ -43,14 +43,8 @@ export class AddPresencaAlunoComponent implements OnInit {
 
               this.bsModalRef.hide();
 
-              this.alerta.success(response.mensagem).then(dialog => {
-                if(dialog.isConfirmed){
-                  window.location.reload();
-                }
-              });
+              this.alerta.success(response.mensagem);
             }
-
-
         }, (error: HttpErrorResponse) => {
           this.spinner.hide();
 
